@@ -11,16 +11,13 @@ class queue_using_stack {
     }
 
     int dequeue() throws Exception {
-        while (s1.size() > 1) {
-            s2.push(s1.pop());
+        if (s2.size() == 0) {
+            while (s1.size() > 0) {
+                s2.push(s1.pop());
+            }
         }
-        swap_stack();
-        return s1.pop();
+        return s2.pop();
+
     }
 
-    void swap_stack() {
-        Stack<Integer> s3 = s1;
-        s1 = s2;
-        s2 = s3;
-    }
 }
